@@ -64,13 +64,13 @@ function copyRange() {
   var rowsDeleted = 0;
   for (var i = 0; i <= numRows - 1; i++) {
       var row = values[i];
-      if (row[8] == 'Yes') { // This searches all cells in columns A (change to row[1] for columns B and so on) and deletes row if cell is empty or has value 'delete'.
+      if (row[8] == 'x') { // This searches all cells in columns A (change to row[1] for columns B and so on) and deletes row if cell is empty or has value 'delete'.
       sourceSheet.deleteRow((parseInt(i)+1) - rowsDeleted);
       rowsDeleted++;
     } else if (row[8] == 'Done') {
-      copiedData.push.apply(copiedData,sourceSheet.getRange(i+1,1,1,7).getValues());
+      //copiedData.push.apply(copiedData,sourceSheet.getRange(i+1,1,1,7).getValues());
       //Copy matched ROW numbers to j
-      j.push(i);
+      //j.push(i);
     }
   }
 
@@ -81,7 +81,7 @@ function copyRange() {
 function addRows(deletedRows) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var ws = ss.getSheetByName('Source'); //source sheet
-  var lastRow = ws.getLastRow(); 
+  var lastRow = ws.getLastRow();
 
   //var lastCol = ws.getLastColumn();
   //var range = ws.getRange(lastRow,1,1,lastCol);
