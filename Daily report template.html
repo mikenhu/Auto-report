@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= include('CSS') ?>
+  </head>
+  <body>
+    
+    <h3>Summary for yesterday <?= yesterday ?> stats</h3>
+    <?var statValues = statTableValues?>
+    <?var statColors = statTableColors?>
+    <table>
+      <?for(var r in statValues){?>
+        <tr>
+          <?for(var c in statValues[r]){?>
+            <?if (r <1) {?>
+              <th bgcolor=<?=statColors[r][c]?>><?=statValues[r][c]?></th>
+            <?} else {?> 
+              <td bgcolor=<?=statColors[r][c]?>><?=statValues[r][c]?></td>
+            <?}?>
+          <?}?>
+        </tr>
+      <?}?>
+    </table>
+    
+    <h3>Here are the cancellation details</h3>
+    <?var cancelValues = cancelTableValues?>
+    <?var cancelColors = cancelTableColors?>
+    <table>
+      <?for(var r in cancelValues){?>
+        <tr>
+          <?for(var c in cancelValues[r]){?>
+            <?if (r <1) {?>
+              <th bgcolor=<?=cancelColors[r][c]?>><?=cancelValues[r][c]?></th>
+            <?} else {?> 
+              <td bgcolor=<?=cancelColors[r][c]?>><?=cancelValues[r][c]?></td>
+            <?}?>
+          <?}?>
+        </tr>
+      <?}?>
+    </table>
+
+    <h3>Invalid repairs (0 min or >180 mins)</h3>
+    <?var invalidRepairValues = invalidRepairTableValues?>
+    <?var invalidRepairColors = invalidRepairTableColors?>
+    <table>
+      <?for(var r in invalidRepairValues){?>
+        <tr>
+          <?for(var c in invalidRepairValues[r]){?>
+            <?if (r <1) {?>
+              <th bgcolor=<?=invalidRepairTableColors[r][c]?>><?=invalidRepairValues[r][c]?></th>
+            <?} else {?>
+              <td bgcolor=<?=invalidRepairTableColors[r][c]?>><?=invalidRepairValues[r][c]?></td>
+            <?}?>
+          <?}?>
+        </tr>
+      <?}?>
+    </table>
+
+    <h3>Reworks (Because delay from QC database, it could include also the day before)</h3>
+    <?var reworkValues = reworkTableValues?>
+    <?var reworkColors = reworkTableColors?>
+    <table>
+      <?for(var r in reworkValues){?>
+        <tr>
+          <?for(var c in reworkValues[r]){?>
+            <?if (r <1) {?>
+              <th bgcolor=<?=reworkColors[r][c]?>><?=reworkValues[r][c]?></th>
+            <?} else {?> 
+              <td bgcolor=<?=reworkColors[r][c]?>><?=reworkValues[r][c]?></td>
+            <?}?>
+          <?}?>
+        </tr>
+      <?}?>
+    </table>
+
+    <br>
+    <h4>In case you want to access the sheet to change anything, <a href="<?= url ?>">CLICK HERE</a></h4>
+
+  </body>
+</html>

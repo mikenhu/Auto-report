@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    
+    <!-- <h2>Daily Report for <?= yesterday ?></h2>
+    <h3>Summary for yesterday <?= yesterday ?> stats</h3>
+    <?var statValues = statTableValues?>
+    <?var colors = tableColors?>
+    <table cellspacing="2" cellpadding="2" dir="ltr" border="1" style="width:100%;table-layout:fixed;font-size:10pt;font-family:arial,sans,sans-serif;border-collapse:collapse;border:1px solid #ccc;font-weight:normal;color:black;background-color:white;text-align:center;text-decoration:none;font-style:normal;word-wrap: break-word;">
+      <?for(var r in statValues){?>
+        <tr>
+          <?for(var c in statValues[r]){?>
+            <td bgcolor=<?=colors[r][c]?>><?=statValues[r][c]?></td>
+          <?}?>
+        </tr>
+      <?}?>
+    </table>
+    -->
+
+    <h3>Summary for yesterday <?= yesterday ?> stats</h3>
+    <?var statValues = statTableValues?>
+      <table cellspacing="2" cellpadding="2" dir="ltr" border="1" style="width:100%;table-layout:fixed;font-size:10pt;font-family:arial,sans,sans-serif;border-collapse:collapse;border:1px solid #ccc;font-weight:normal;color:black;background-color:white;text-align:left;text-decoration:none;font-style:normal;word-wrap: break-word;">
+      <?for(var r in statValues){?>
+        <tr>
+          <?for(var c in statValues[r]){?>
+            <td><?=statValues[r][c]?></td>
+          <?}?>
+        </tr>
+      <?}?>
+    </table>
+    
+    <h3>Here are the cancellation details</h3>
+    <?var cancelValues = cancelTableValues?>
+      <table cellspacing="2" cellpadding="2" dir="ltr" border="1" style="width:100%;table-layout:fixed;font-size:10pt;font-family:arial,sans,sans-serif;border-collapse:collapse;border:1px solid #ccc;font-weight:normal;color:black;background-color:white;text-align:left;text-decoration:none;font-style:normal;word-wrap: break-word;">
+      <?for(var r in cancelValues){?>
+        <tr>
+          <?for(var c in cancelValues[r]){?>
+            <td><?=cancelValues[r][c]?></td>
+          <?}?>
+        </tr>
+      <?}?>
+    </table>
+
+    <h3>Yesterday's warehouse request</h3>
+    <?var requestValues = requestTableValues?>
+      <table cellspacing="2" cellpadding="2" dir="ltr" border="1" style="width:100%;table-layout:fixed;font-size:10pt;font-family:arial,sans,sans-serif;border-collapse:collapse;border:1px solid #ccc;font-weight:normal;color:black;background-color:white;text-align:left;text-decoration:none;font-style:normal;word-wrap: break-word;">
+      <?for(var r in requestValues){?>
+        <tr>
+          <?for(var c in requestValues[r]){?>
+            <td><?=requestValues[r][c]?></td>
+          <?}?>
+        </tr>
+      <?}?>
+    </table>
+
+    <h3>Yesterday's reworks (Because delay from QC database, it could include also the day before)</h3>
+    <?var reworkValues = reworkTableValues?>
+      <table cellspacing="2" cellpadding="2" dir="ltr" border="1" style="width:100%;table-layout:fixed;font-size:10pt;font-family:arial,sans,sans-serif;border-collapse:collapse;border:1px solid #ccc;font-weight:normal;color:black;background-color:white;text-align:left;text-decoration:none;font-style:normal;word-wrap: break-word;">
+      <?for(var r in reworkValues){?>
+        <tr>
+          <?for(var c in reworkValues[r]){?>
+            <td><?=reworkValues[r][c]?></td>
+          <?}?>
+        </tr>
+      <?}?>
+    </table>
+   
+  </body>
+</html>

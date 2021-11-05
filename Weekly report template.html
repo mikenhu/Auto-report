@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= include('CSS') ?>
+  </head>
+  <body>
+
+    <h3>Summary for last week <?= lastWk ?> stats</h3>
+    <!-- Insert loop for table array -->
+    <?var statValues = statTableValues?>
+    <table>
+      <?for(var r in statValues){?>
+        <tr>
+          <?for(var c in statValues[r]){?>
+            <?if (r <1) {?>
+              <th><?=statValues[r][c]?></th>
+            <?} else {?> 
+              <td><?=statValues[r][c]?></td>
+            <?}?>
+          <?}?>
+        </tr>
+      <?}?>
+    </table>
+
+
+    <h3>Here are the charts</h3>
+    <p>
+      <!-- Insert loop for chart array -->
+      <? chartDataValues ?>
+      <? for (var i in chartDataValues) { ?>
+      <img src='cid:<?=chartDataValues[i]?>'/>
+      <?}?>  
+    </p>
+      
+      <!--
+        <img src = "cid:imageKey1"/>
+        <img src = "cid:imageKey2"/>
+      -->
+
+    <br>
+    <h3>In case you want to access the sheet to change anything, <a href="<?= url ?>">CLICK HERE</a></h3>
+  </body>
+</html>
